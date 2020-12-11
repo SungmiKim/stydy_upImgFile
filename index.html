@@ -1,7 +1,11 @@
 <html>
   <head>
     <title>:: JavaScript 파일 썸네일 추출 ::</title>
-
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
     <script type="text/javascript">
       function uploadImgPreview() {
         // @breif 업로드 파일 읽기
@@ -39,22 +43,49 @@
     </script>
   </head>
 
-  <body>
+  <body style="background-color: yellowgreen">
     <!-- @breif accept 태그는 파일 업로드시 그것을 이미지 파일로 제한한다. -->
+    <div>
+      <input
+        type="file"
+        id="upImgFile"
+        onChange="uploadImgPreview();"
+        accept="image/*"
+      />
 
-    <input
-      type="file"
-      id="upImgFile"
-      onChange="uploadImgPreview();"
-      accept="image/*"
-    />
+      <hr />
+      <!-- open menu -->
+      <table class="full-width">
+        <tr>
+          <td>
+            <div class="show-menu center-align">
+              <div class="show-menu-title">상자안을 색으로 채워주세요</div>
+            </div>
+            <div id="block1" class="show-menu-desc">
+              <div class="menu-wrap center-align">
+                <canvas
+                  id="drawCanvas"
+                  width="326"
+                  height="280"
+                  style="
+                    border-radius: 4px;
+                    background-image: url('https://mdn.mozillademos.org/files/7693/catfront.png');
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                  "
+                ></canvas>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <img id="thumbnailImg" src="" />
+    </div>
+    <!-- <br />
 
-    <hr />
+    <div id="thumbnailUrl"></div> -->
 
-    <img id="thumbnailImg" src="" />
-
-    <br />
-
-    <div id="thumbnailUrl"></div>
+    <script src="./js/paint.js"></script>
   </body>
 </html>
